@@ -1,0 +1,19 @@
+# Track 1 model environment (Python 3.12): member training on an Apple GPU (MPS) or CPU, frame export, the vote,
+# the 950232 synthetic branch and the E0 local stage.
+torch==2.8.0
+torchaudio==2.8.0
+einops==0.8.2
+numpy==1.26.4
+scipy==1.17.1
+soundfile==0.14.0
+transformers==4.57.1        # E0 (WavLM-Large) only
+
+# Data-preparation environment (data_prep/vaani, data_prep/recipe), as we ran it:
+#   numpy==2.5.3
+#   scipy==1.18.1
+#   soundfile==0.14.0
+#   pyarrow==25.0.1
+#   huggingface_hub==1.30.0
+#
+# Kaggle kernels (training/kernels, system_950232/e0): the Kaggle GPU image (2 x T4, Python 3.12.13,
+# torch 2.10.0+cu128). The E0 jobs install torch 2.8.0 and transformers 4.57.1 themselves.

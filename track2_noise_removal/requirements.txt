@@ -1,0 +1,17 @@
+# Track 2 (tested with Python 3.12.13). Inference (main.py) and training use the same packages.
+torch==2.14.0
+torchaudio==2.11.0
+numpy==2.5.3
+scipy==1.18.1
+soundfile==0.14.0
+librosa==1.0.0
+einops==0.8.2
+rotary-embedding-torch==0.9.1
+transformers==5.17.0
+sentencepiece==0.2.2
+huggingface_hub==1.33.0
+safetensors==0.8.0
+packaging==26.3
+PyYAML==6.0.3
+# training data preparation only (DeepFilterNet3 resampling in training/data/build_clean_beds.py)
+soxr==1.1.0

@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS and editors
+.DS_Store
+.idea/
+.vscode/
+
+# Data, outputs and weights are never committed
+*.wav
+*.flac
+*.mp3
+*.zip
+*.tar
+*.tar.gz
+*.parquet
+*.npy
+*.npz
+*.pkl
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.safetensors
+*.onnx
+/data/
+/outputs/
+/work/
+/checkpoints/
+predictions.jsonl
+transcripts.jsonl
+
+# Secrets
+.env
+*.env
+kaggle.json

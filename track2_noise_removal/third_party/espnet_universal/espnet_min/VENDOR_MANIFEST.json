@@ -1,0 +1,152 @@
+{
+ "upstream_repo": "https://github.com/kohei0209/espnet",
+ "upstream_branch": "urgent2025",
+ "upstream_commit": "6be80495bca76d8406ca11e5971a9954949ac9c1",
+ "identical_to": "https://github.com/espnet/espnet tag v.202409 commit 6bae9d295c7113253203087b87d77e28117f0807",
+ "license": "Apache-2.0 (LICENSE = ESPnet LICENSE file, git blob 6afea95e)",
+ "files": [
+  {
+   "file": "get_layer_from_string.py",
+   "upstream_path": "espnet2/torch_utils/get_layer_from_string.py",
+   "upstream_git_blob_sha1": "aa07ffca5ddc9a6c92b8b019e6f7cf5865f3fb16",
+   "sha256": "9e1c03b73eecb687ec57577f34c33397e3a3f1771c312a1e4487400147f47702",
+   "bytes": 2955,
+   "changes": [
+    "none (header only)"
+   ]
+  },
+  {
+   "file": "abs_separator.py",
+   "upstream_path": "espnet2/enh/separator/abs_separator.py",
+   "upstream_git_blob_sha1": "ccb703ec9fab541066dad1299c2d8a8c026d7f82",
+   "sha256": "e5137f00373863374961e964541241bfdf688b3a00b163e4ec7f1fe7bd6f2650",
+   "bytes": 2190,
+   "changes": [
+    "none (header only)"
+   ]
+  },
+  {
+   "file": "tcn_norm.py",
+   "upstream_path": "espnet2/enh/layers/tcn.py",
+   "upstream_git_blob_sha1": "b9689ad429cc96bf61bec570d3755bd8fa109302",
+   "sha256": "a8cfec9fc7413a646332ae84da24f39f7dd828e44decda24d18f3df89c9aa9f1",
+   "bytes": 2675,
+   "changes": [
+    "only EPS and choose_norm() are kept; all other classes and functions of tcn.py are removed",
+    "imports reduced to torch and torch.nn",
+    "choose_norm(\"gLN\") and choose_norm(\"cLN\") raise NotImplementedError (their classes are not vendored)"
+   ]
+  },
+  {
+   "file": "stft.py",
+   "upstream_path": "espnet2/layers/stft.py",
+   "upstream_git_blob_sha1": "de466714c385392aba5eb63a464cc785e1da4572",
+   "sha256": "f1dff8d3c6289dfa9f20471a0a15f6b6b4f6b9dc7fe814b7db73f861234fb138",
+   "bytes": 7805,
+   "changes": [
+    "imports of librosa, numpy, packaging, torch_complex, typeguard, InversibleInterface and espnet make_pad_mask removed; to_complex comes from the local complex_utils",
+    "class Stft has no InversibleInterface base and no @typechecked decorator",
+    "the librosa fallback for old PyTorch without MKL is removed; torch.stft is always used (the same as ESPnet v.202610)",
+    "type hint Union[torch.Tensor, ComplexTensor] of inverse() changed to torch.Tensor",
+    "a small local make_pad_mask() is added at the end of the file"
+   ]
+  },
+  {
+   "file": "stft_encoder.py",
+   "upstream_path": "espnet2/enh/encoder/stft_encoder.py",
+   "upstream_git_blob_sha1": "e71f67a7a14101c1672a0431ad5db61c24be2c2b",
+   "sha256": "149db040dd4289f449bc4d1177996f5fc9e00f8dc9816f7e132bfcf0d8c07d45",
+   "bytes": 6527,
+   "changes": [
+    "imports of packaging, torch_complex and AbsEncoder removed; base class is torch.nn.Module",
+    "the torch version check is removed; use_builtin_complex=False raises NotImplementedError",
+    "the streaming methods (_apply_window_func, forward_streaming, streaming_frame) are removed",
+    "decorator \"@torch.cuda.amp.autocast(enabled=False)\" changed to \"@torch.amp.autocast(\\\"cuda\\\", enabled=False)\" (same behaviour; the old form is deprecated in new PyTorch; ESPnet v.202610 uses the new form)"
+   ]
+  },
+  {
+   "file": "stft_decoder.py",
+   "upstream_path": "espnet2/enh/decoder/stft_decoder.py",
+   "upstream_git_blob_sha1": "01708898ab1072add6bd3cbcb193823d62242359",
+   "sha256": "a64a21e5d47b2c5236d5e71199c75cd4b39b88683732d983c2f66815c871a1e9",
+   "bytes": 6594,
+   "changes": [
+    "imports of torch_complex, packaging and AbsDecoder removed; base class is torch.nn.Module",
+    "input must be a torch complex tensor (ComplexTensor is not vendored); the torch version check is removed",
+    "the streaming methods (_get_window_func, forward_streaming, streaming_merge) and the __main__ test block are removed",
+    "decorator \"@torch.cuda.amp.autocast(enabled=False)\" changed to \"@torch.amp.autocast(\\\"cuda\\\", enabled=False)\" (same behaviour; the old form is deprecated in new PyTorch; ESPnet v.202610 uses the new form)"
+   ]
+  },
+  {
+   "file": "tfgridnetv3_separator.py",
+   "upstream_path": "espnet2/enh/separator/tfgridnetv3_separator.py",
+   "upstream_git_blob_sha1": "a91d3992954a38b19493e335044e38d4dacdb18b",
+   "sha256": "ab0b0a4dae640ccaa9313f5a6555cbf15b06ff847a0f1b670af015036e0ddcaa",
+   "bytes": 16797,
+   "changes": [
+    "the espnet2 imports are changed to local relative imports",
+    "decorator \"@torch.cuda.amp.autocast(enabled=False)\" changed to \"@torch.amp.autocast(\\\"cuda\\\", enabled=False)\" (same behaviour; the old form is deprecated in new PyTorch; ESPnet v.202610 uses the new form)"
+   ]
+  },
+  {
+   "file": "bsrnn.py",
+   "upstream_path": "espnet2/enh/layers/bsrnn.py",
+   "upstream_git_blob_sha1": "bd4b736efa6c2bb44e95769960328bb6d5a3abec",
+   "sha256": "a1bd62d60c4fc1cc6acf1737afa9d4c92db3c9b333e049f586c7a2213a664422",
+   "bytes": 15117,
+   "changes": [
+    "the espnet2 import of choose_norm is changed to the local tcn_norm.py",
+    "decorator \"@torch.cuda.amp.autocast(enabled=False)\" changed to \"@torch.amp.autocast(\\\"cuda\\\", enabled=False)\" (same behaviour; the old form is deprecated in new PyTorch; ESPnet v.202610 uses the new form)"
+   ]
+  },
+  {
+   "file": "bsrnn_separator.py",
+   "upstream_path": "espnet2/enh/separator/bsrnn_separator.py",
+   "upstream_git_blob_sha1": "cdca9f346d3a4c7fddcb0f10127d9caf378e88fa",
+   "sha256": "0077b903e92ca748f4d2f34c239aae5361582adf51f87340780b94c69605fd2b",
+   "bytes": 5722,
+   "changes": [
+    "the torch_complex import is removed and the espnet2 imports are changed to local relative imports",
+    "type hints Union[torch.Tensor, ComplexTensor] changed to torch.Tensor",
+    "for a real-valued input (B, T, F, 2) the output is a torch complex tensor (torch.complex) instead of a torch_complex.ComplexTensor; for a complex input (our case) nothing changes"
+   ]
+  },
+  {
+   "file": "LICENSE",
+   "upstream_path": "LICENSE",
+   "upstream_git_blob_sha1": "6afea95e3feee6ed39ecd4840662576c1f513173",
+   "sha256": "4696c3c9551da6fef1368be1e4ed2c80cf13e55448c6dcf2aba9462f5ff29ef5",
+   "bytes": 11372,
+   "changes": [
+    "none (byte-identical copy)"
+   ]
+  },
+  {
+   "file": "__init__.py",
+   "hand_written": true,
+   "derived_from": [],
+   "sha256": "d2a136419597ca06180fc4c03d314b6763f76098325f473bb2f955282560ddb0",
+   "bytes": 592
+  },
+  {
+   "file": "complex_utils.py",
+   "hand_written": true,
+   "derived_from": [
+    "espnet2/enh/layers/complex_utils.py"
+   ],
+   "sha256": "c5c04658437b2dac0f1e70c9e9593f01aea2681557a502399626a60d8cbb3aa1",
+   "bytes": 2345
+  },
+  {
+   "file": "model.py",
+   "hand_written": true,
+   "derived_from": [
+    "espnet2/enh/espnet_model.py",
+    "espnet2/tasks/enh.py",
+    "espnet2/bin/enh_inference.py"
+   ],
+   "sha256": "465e4b1b5e8749e47bc21b9ff7bd521d1fb18072ee5a959e21ee72e9fa3bc2ae",
+   "bytes": 16369
+  }
+ ]
+}
